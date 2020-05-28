@@ -346,6 +346,9 @@ class Users(BaseAPI):
         members = self.list().body['members']
         return get_item_id_by_name(members, user_name)
 
+    def lookup_by_email(self, email):
+        return self.get('users.lookupByEmail', params={'email': email})
+
 
 class Groups(BaseAPI):
     def create(self, name):
